@@ -1,4 +1,4 @@
-name: Deploy static site
+name: Deploy static site to GitHub Pages
 
 on:
   push:
@@ -14,16 +14,16 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout source code
         uses: actions/checkout@v3
 
-      - name: Setup GitHub Pages
+      - name: Set up GitHub Pages
         uses: actions/configure-pages@v3
 
       - name: Upload static files
         uses: actions/upload-pages-artifact@v2
         with:
-          path: .  # deploys everything in the repo root (like index.html)
+          path: .  # deploys root directory with index.html
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
