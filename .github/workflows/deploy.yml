@@ -1,4 +1,4 @@
-name: Deploy Static Website to GitHub Pages
+name: Deploy static site
 
 on:
   push:
@@ -17,13 +17,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup Pages
+      - name: Setup GitHub Pages
         uses: actions/configure-pages@v3
 
       - name: Upload static files
         uses: actions/upload-pages-artifact@v2
         with:
-          path: ./  # change this if your HTML files are in a subdirectory
+          path: .  # deploys everything in the repo root (like index.html)
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
